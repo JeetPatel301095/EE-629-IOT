@@ -1,1 +1,2 @@
-print('Hello, world!')
+def plus(a,b):
+    print(a+b)
