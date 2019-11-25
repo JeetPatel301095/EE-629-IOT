@@ -1,3 +1,1 @@
-import sys
-
-return "FUCK"
+print('Hello, world!')
