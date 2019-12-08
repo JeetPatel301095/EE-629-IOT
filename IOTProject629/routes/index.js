@@ -16,15 +16,15 @@ const constructormethod = app =>{
         else
         {
             a=true;
-            b = Date.now();       
+            b = Date.now();
             var options = {
                 mode: 'text',
                 encoding:'utf8',
                 pythonOptions: ['-u'],
-                scriptPath: "./",
+                scriptPath: "//home//pi//EE-629-IOT//IOTProject629//routes",
             }
             
-            var test = new PythonShell.PythonShell("C:\\Users\\Jeet\\Jeet\\EE-629\\EE-629-IOT\\IOTProject629\\routes\\on.py",options);
+            var test = new PythonShell.PythonShell("on.py",options);
             test.on("message",function(message){
                 res.send(message);
             })
@@ -46,10 +46,10 @@ const constructormethod = app =>{
                 mode: 'text',
                 encoding:'utf8',
                 pythonOptions: ['-u'],
-                scriptPath: "./",
+                scriptPath: "//home//pi//EE-629-IOT//IOTProject629//routes",
             }
             
-            var test = new PythonShell.PythonShell("C:\\Users\\Jeet\\Jeet\\EE-629\\EE-629-IOT\\IOTProject629\\routes\\off.py",options);
+            var test = new PythonShell.PythonShell("off.py",options);
             test.on("message",function(message){
                 res.send(message+"  "+d);
             })
