@@ -53,6 +53,20 @@ const constructormethod = app =>{
             test.on("message",function(message){
                 res.send(message+"  "+d);
             })
+
+		
+            var options = {
+                mode: 'text',
+                encoding:'utf8',
+                pythonOptions: ['-u'],
+                scriptPath: "//home//pi//EE-629-IOT//IOTProject629//routes",
+                args:[d]
+            }
+            
+            var test = new PythonShell.PythonShell("rpi_spreadsheet.py",options);
+            test.on("message",function(message){
+               console.log(message);
+            })
         }
         else
         {

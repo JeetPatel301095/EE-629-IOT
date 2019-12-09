@@ -3,13 +3,10 @@ import sys
 import time
 import datetime
 import gspread
-import psutil
 import subprocess
-from system_info import get_temperature
 from oauth2client.service_account import ServiceAccountCredentials
-GDOCS_OAUTH_JSON       = 'KEY_FILE_NAME.json'
-GDOCS_SPREADSHEET_NAME = 'SPREADSHEET_NAME'
-FREQUENCY_SECONDS      = 10
+GDOCS_OAUTH_JSON       = '/home/pi/EE-629-IOT/IOTProject629/routes/IOTProject-449223ded6df.json'
+GDOCS_SPREADSHEET_NAME = 'IOTProject'
 def login_open_sheet(oauth_key_file, spreadsheet):
     try:
         credentials = ServiceAccountCredentials.from_json_keyfile_name(oauth_key_file, 
@@ -23,27 +20,19 @@ def login_open_sheet(oauth_key_file, spreadsheet):
         print('make sure spreadsheet is shared to the client_email address in the OAuth .json file!')
         print('Google sheet login failed with error:', ex)
         sys.exit(1)
-print('Logging sensor measurements to {0} every {1} seconds.'.format(GDOCS_SPREADSHEET_NAME, FREQUENCY_SECONDS))
+print('Logging sensor measurements to {0}'.format(GDOCS_SPREADSHEET_NAME))
 print('Press Ctrl-C to quit.')
-worksheet = None
-while True:
-    if worksheet is None:
-        worksheet = login_open_sheet(GDOCS_OAUTH_JSON, GDOCS_SPREADSHEET_NAME)
-    dat = datetime.datetime.now()
-    cpu = psutil.cpu_percent()
-    tmp = get_temperature()
-    print(dat)
-    print('CPU Usage in %: '+str(cpu))
-    print('Temperature in C: ' +str(tmp))
-    try:
-        worksheet.append_row((str(dat), cpu, tmp))
+worksheet = login_open_sheet(GDOCS_OAUTH_JSON, GDOCS_SPREADSHEET_NAME)
+dat = datetime.datetime.now()
+time2 = sys.argv[1]    
+print(dat)
+print('LED Usage in sec: '+str(time2))
+try:
+    worksheet.append_row((str(dat), time2))
 #        worksheet.append_row((dat, cpu, tmp))
 # gspread==0.6.2
 # https://github.com/burnash/gspread/issues/511  
-    except:
-        print('Append error, logging in again')
-        worksheet = None
-        time.sleep(FREQUENCY_SECONDS)
-        continue
-    print('Wrote a row to {0}'.format(GDOCS_SPREADSHEET_NAME))
-    time.sleep(FREQUENCY_SECONDS)
+except:
+    print('Append error, logging in again')
+    worksheet = None
+
