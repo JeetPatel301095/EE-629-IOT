@@ -5,7 +5,8 @@ import datetime
 import gspread
 import subprocess
 from oauth2client.service_account import ServiceAccountCredentials
-GDOCS_OAUTH_JSON       = '/home/pi/EE-629-IOT/IOTProject629/routes/IOTProject-449223ded6df.json'
+GDOCS_OAUTH_JSON       = 'KEY-AUTH.json' 
+#Key JSON file name
 GDOCS_SPREADSHEET_NAME = 'IOTProject'
 def login_open_sheet(oauth_key_file, spreadsheet):
     try:
