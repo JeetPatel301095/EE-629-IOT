@@ -7,7 +7,7 @@ The Project Uses Node.js to host the server on PI and calls on Python scripts th
 Basic Requirements to run the Project:
 1) LED connected to PI through pin 18
 2) PI and other computer connected on the same network.
-3) IP address of PI is to be known to access the website
+3) IP address of PI is to be known to access the website.
 4) Need Node.js, npm packages and Python Interpreter installed.
 
 Before Starting the server:
@@ -17,7 +17,7 @@ Before Starting the server:
 
 To Start The Server follow the following steps:
 1) Enter the Project Folder through the Terminal
-2) ~\\\ "npm start"
+2) Run Command "npm start"
 3) This will start the Server on your PI.
 
 To run this from another computer, the pi and the computer must be connected to the same network, and you need the ip of pi in order to access the server.
