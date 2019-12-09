@@ -17,7 +17,7 @@ Before Starting the server:
 
 To Start The Server follow the following steps:
 1) Enter the Project Folder through the Terminal
-2) Run Command ```"npm start"
+2) Run Command "npm start"
 3) This will start the Server on your PI.
 
 To run this from another computer, the pi and the computer must be connected to the same network, and you need the ip of pi in order to access the server.
