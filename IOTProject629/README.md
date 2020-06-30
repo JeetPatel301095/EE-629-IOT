@@ -1,5 +1,7 @@
 Project Folder for Course of EE-629-IOT
 
+Project Name - Remote Access of Devices Connected to Raspberry Pi
+
 This Project allows the user to access a LED connected to pi through a website and store the amount of time it is kept on into Google Sheets
 
 The Project Uses Node.js to host the server on PI and calls on Python scripts through PythonShell package.
